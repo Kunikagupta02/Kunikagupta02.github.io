@@ -179,7 +179,14 @@ document.addEventListener('error',function(e){
 
   function closeEvidence(){modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow='';}
 
+  const screenshotFallbacks={
+    'Shivam Developers':'assets/evidence/Shivam Developers.png',
+    'Sheetal Bakery':'assets/evidence/Sheetal Bakery.png'
+  };
   document.querySelectorAll('.evidence-trigger').forEach(btn=>{
+    if((btn.dataset.images||'[]')==='[]' && screenshotFallbacks[btn.dataset.title]){
+      btn.dataset.images=JSON.stringify([{src:screenshotFallbacks[btn.dataset.title],caption:'Supplied campaign evidence'}]);
+    }
     const images=getLocalImages(btn);
     const card=btn.closest('.coverage-card');
     if(card){
