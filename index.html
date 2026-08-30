@@ -45,6 +45,8 @@ section{padding:82px 0;border-top:1px solid var(--line)}.section-head{display:fl
 #meta-exposure .coverage-grid-meta{grid-template-columns:repeat(3,1fr)}
 @media(max-width:900px){#meta-exposure .coverage-grid-meta{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){#meta-exposure .coverage-grid-meta{grid-template-columns:1fr}}
+#web-exposure .coverage-grid-web{grid-template-columns:repeat(2,1fr)}
+@media(max-width:560px){#web-exposure .coverage-grid-web{grid-template-columns:1fr}}
 
 /* Final refinement: skills format, real tool marks, and expandable evidence */
 .skills-six{grid-template-columns:repeat(3,1fr);gap:18px}.skills-six .skill{position:relative;padding:28px;border-radius:22px}.skills-six .skill h3{font-size:28px;letter-spacing:-.03em;margin:0 42px 8px 0}.skill-no{position:absolute;top:26px;right:28px;color:var(--blue);font-size:12px;font-weight:850}.skills-six .skillline{font-size:14px;line-height:1.6}.skills-six .evidence{font-size:12px;line-height:1.5;margin-top:18px;padding-top:15px}.toolicon img{width:29px;height:29px;object-fit:contain;display:block}.toolicon{overflow:hidden}
@@ -199,7 +201,7 @@ document.addEventListener('error',function(e){
       'assets/evidence/Priyadrshini Public School Campaing Setup 11.png'
     ]
   };
-  document.querySelectorAll('.evidence-trigger').forEach(btn=>{
+  function setupEvidenceButton(btn){
     if((btn.dataset.images||'[]')==='[]' && screenshotFallbacks[btn.dataset.title]){
       btn.dataset.images=JSON.stringify([{src:screenshotFallbacks[btn.dataset.title],caption:'Supplied campaign evidence'}]);
     }
@@ -224,7 +226,8 @@ document.addEventListener('error',function(e){
     }
     btn.textContent='View Screenshot ↗';
     btn.addEventListener('click',()=>openEvidence(btn));
-  });
+  }
+  document.querySelectorAll('.evidence-trigger').forEach(setupEvidenceButton);
   const metaGrid=document.querySelector('#meta-exposure .coverage-grid-meta');
   if(metaGrid){
     const featuredClients=new Set(['SMRL','Hotel Teja Garden','Sharda Paridhan','Aarzoo Car','ShreeRam Classes','Virat Collection']);
@@ -235,6 +238,35 @@ document.addEventListener('error',function(e){
     more.className='clients-more';
     more.innerHTML='<a href="clients.html">See more clients</a>';
     metaGrid.insertAdjacentElement('afterend',more);
+  }
+  const featuredWebsites={
+    'M4B':{name:'M4B Bhujia And Namkeen',image:'assets/evidence/M4B Bhujiya.png'},
+    'Digi Mate':{name:'Digimate',image:'assets/evidence/Digimate.png'},
+    'Digifundas':{name:'Digifundas',image:'assets/evidence/Digifundas.png'},
+    'Waowoman':{name:'Wao Women Bkn',image:'assets/evidence/Waowomanbkn.png'}
+  };
+  const websiteSection=document.querySelector('#web-exposure');
+  const websiteGrid=websiteSection?.querySelector('.coverage-grid-web');
+  if(websiteSection&&websiteGrid){
+    websiteSection.querySelector('.kicker').textContent='05 / Live Websites & SEO';
+    websiteSection.querySelector('.coverage-head h2').textContent='Live websites and SEO work.';
+    websiteSection.querySelector('.coverage-head .lead').textContent='A focused selection of active websites, showing WordPress implementation and SEO-related practical work.';
+    websiteSection.querySelector('.coverage-summary')?.remove();
+    websiteSection.querySelector('.historical-note').innerHTML='<strong>Live website portfolio:</strong> These four sites are the currently working website examples included in the portfolio.';
+    [...websiteGrid.querySelectorAll('.coverage-card')].forEach(card=>{
+      const originalName=card.querySelector('h3')?.textContent.trim();
+      const website=featuredWebsites[originalName];
+      card.hidden=!website;
+      if(!website)return;
+      card.querySelector('h3').textContent=website.name;
+      card.querySelector('.coverage-tag').textContent='Live website';
+      const evidence=document.createElement('button');
+      evidence.type='button'; evidence.className='evidence-trigger';
+      evidence.dataset.title=website.name;
+      evidence.dataset.images=JSON.stringify([{src:website.image,caption:'Supplied website screenshot'}]);
+      card.querySelector('.coverage-bottom').insertBefore(evidence,card.querySelector('.coverage-bottom a'));
+      setupEvidenceButton(evidence);
+    });
   }
   close.addEventListener('click',closeEvidence);
   modal.addEventListener('click',e=>{if(e.target===modal)closeEvidence()});
