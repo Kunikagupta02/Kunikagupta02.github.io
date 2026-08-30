@@ -181,11 +181,28 @@ document.addEventListener('error',function(e){
 
   const screenshotFallbacks={
     'Shivam Developers':'assets/evidence/Shivam Developers.png',
-    'Sheetal Bakery':'assets/evidence/Sheetal Bakery.png'
+    'Sheetal Bakery':'assets/evidence/Sheetal Bakery.png',
+    'Sharda Paridhan':'assets/evidence/Sharda Paridhan.png',
+    'ShreeRam Classes':'assets/evidence/Shreeram Classes1.png',
+    'SMRL':'assets/evidence/SMRL.png',
+    'Virat Collection':'assets/evidence/Virat Collection.png',
+    'Styler Homes':'assets/evidence/Styler Home.png',
+    'Pista Devi Kisan':'assets/evidence/Pista Devi Kisan Seva.png'
+  };
+  const additionalScreenshots={
+    'Priyadarshhini Public School':[
+      'assets/evidence/Priyadrshini Public School Campaing Setup 2.png',
+      'assets/evidence/Priyadrshini Public School Campaing Setup 3.png',
+      'assets/evidence/Priyadrshini Public School Campaing Setup 11.png'
+    ]
   };
   document.querySelectorAll('.evidence-trigger').forEach(btn=>{
     if((btn.dataset.images||'[]')==='[]' && screenshotFallbacks[btn.dataset.title]){
       btn.dataset.images=JSON.stringify([{src:screenshotFallbacks[btn.dataset.title],caption:'Supplied campaign evidence'}]);
+    }
+    if(additionalScreenshots[btn.dataset.title]){
+      const current=JSON.parse(btn.dataset.images||'[]');
+      btn.dataset.images=JSON.stringify(current.concat(additionalScreenshots[btn.dataset.title].map(src=>({src,caption:'Supplied campaign evidence'}))));
     }
     const images=getLocalImages(btn);
     const card=btn.closest('.coverage-card');
