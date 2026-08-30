@@ -38,7 +38,7 @@ section{padding:82px 0;border-top:1px solid var(--line)}.section-head{display:fl
 .coverage-card a{font-size:11px;color:var(--blue);font-weight:800}
 .coverage-summary{display:flex;flex-wrap:wrap;gap:9px;margin-top:20px}
 .summary-pill{padding:8px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;color:#475467}
-.historical-note{margin-top:18px;padding:14px 16px;border-radius:14px;background:#f8fafc;color:#667085;font-size:12px}
+.historical-note{margin-top:18px;padding:14px 16px;border-radius:14px;background:#f8fafc;color:#667085;font-size:12px}#meta-exposure .coverage-grid-meta .coverage-card:nth-child(n+7){display:none}.clients-more{display:flex;justify-content:center;margin-top:26px}.clients-more a{display:inline-flex;align-items:center;justify-content:center;padding:11px 18px;border-radius:10px;background:var(--blue);color:#fff;font-size:14px;font-weight:800}.clients-more a:hover{background:#1d4ed8}
 @media(max-width:1050px){.coverage-grid-meta{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){.coverage-head{display:block}.coverage-head .lead{margin-top:14px}.coverage-grid-meta{grid-template-columns:repeat(2,1fr)}.coverage-grid-web{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.coverage-grid-meta,.coverage-grid-web{grid-template-columns:1fr}}
@@ -198,6 +198,14 @@ document.addEventListener('error',function(e){
     btn.textContent='View Screenshot ↗';
     btn.addEventListener('click',()=>openEvidence(btn));
   });
+  const metaGrid=document.querySelector('#meta-exposure .coverage-grid-meta');
+  if(metaGrid){
+    [...metaGrid.querySelectorAll('.coverage-card')].forEach((card,index)=>{if(index>5)card.hidden=true;});
+    const more=document.createElement('div');
+    more.className='clients-more';
+    more.innerHTML='<a href="clients.html">See more clients</a>';
+    metaGrid.insertAdjacentElement('afterend',more);
+  }
   close.addEventListener('click',closeEvidence);
   modal.addEventListener('click',e=>{if(e.target===modal)closeEvidence()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeEvidence()});
