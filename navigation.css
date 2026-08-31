@@ -11,7 +11,7 @@
 .navin{min-height:76px!important;gap:24px}
 .brand{display:inline-flex!important;align-items:center;gap:10px;font-family:Georgia,"Times New Roman",serif!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;color:var(--navy,#0b172a)!important;line-height:1;transition:transform .18s ease}
 .brand:hover{transform:translateY(-1px)}
-.brand-mark{width:32px;height:32px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(135deg,#2563eb,#7f56d9);color:#fff;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:11px;font-weight:900;letter-spacing:-.08em;box-shadow:0 6px 16px rgba(37,99,235,.22)}
+.brand-mark{display:none}
 .brand-name{font-size:20px;font-style:italic;letter-spacing:-.045em;white-space:nowrap}
 .brand-name strong{font-weight:800}
 .navlinks{display:flex!important;align-items:center;gap:3px!important;padding:5px;border:1px solid var(--line,#e6e9ef);border-radius:14px;background:#fff;color:var(--muted,#667085);font-size:13px!important}
