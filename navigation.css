@@ -8,7 +8,7 @@
   border-bottom:1px solid rgba(230,233,239,.9)!important;
   box-shadow:0 5px 24px rgba(16,24,40,.035);
 }
-.navin{min-height:76px!important;gap:24px}
+.navin{min-height:76px!important;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:inline-flex!important;align-items:center;gap:10px;font-family:Georgia,"Times New Roman",serif!important;font-weight:400!important;letter-spacing:0!important;text-transform:none!important;color:var(--navy,#0b172a)!important;line-height:1;transition:transform .18s ease}
 .brand:hover{transform:translateY(-1px)}
 .brand-mark{display:none}
@@ -17,11 +17,12 @@
 .navlinks{display:flex!important;align-items:center;gap:3px!important;padding:5px;border:1px solid var(--line,#e6e9ef);border-radius:14px;background:#fff;color:var(--muted,#667085);font-size:13px!important}
 .navlinks a{padding:8px 11px!important;border:0!important;border-radius:9px!important;color:inherit!important;font-weight:750!important;transition:background .18s ease,color .18s ease,transform .18s ease}
 .navlinks a:hover,.navlinks a.active{background:var(--blue2,#dbeafe)!important;color:var(--blue,#2563eb)!important;transform:none}
-.nav.full-nav .navin{min-height:118px!important;flex-direction:column;justify-content:center;gap:11px;padding:13px 0}
+.nav.full-nav .navin{min-height:118px!important;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:13px 0}
 .nav.full-nav .brand{justify-content:center}
 .nav.full-nav .navlinks{justify-content:center}
 .section-head,.coverage-head{display:block!important}
 .section-head .lead,.coverage-head .lead,.section-description{max-width:780px!important;margin:14px 0 0!important;color:var(--muted,#667085);font-size:16px;line-height:1.6;font-weight:500;letter-spacing:0}
+.hero-more{display:inline-flex;align-items:center;gap:7px;margin:2px 0 24px;color:var(--blue,#2563eb);font-size:14px;font-weight:800}.hero-more:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:560px){
   .navin{min-height:64px!important;padding:9px 0!important;align-items:center!important;gap:12px}
   .nav.full-nav .navin{min-height:100px!important;gap:9px;padding:10px 0!important}
