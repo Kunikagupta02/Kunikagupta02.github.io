@@ -17,8 +17,14 @@
 .navlinks{display:flex!important;align-items:center;gap:3px!important;padding:5px;border:1px solid var(--line,#e6e9ef);border-radius:14px;background:#fff;color:var(--muted,#667085);font-size:13px!important}
 .navlinks a{padding:8px 11px!important;border:0!important;border-radius:9px!important;color:inherit!important;font-weight:750!important;transition:background .18s ease,color .18s ease,transform .18s ease}
 .navlinks a:hover,.navlinks a.active{background:var(--blue2,#dbeafe)!important;color:var(--blue,#2563eb)!important;transform:none}
+.nav.full-nav .navin{min-height:118px!important;flex-direction:column;justify-content:center;gap:11px;padding:13px 0}
+.nav.full-nav .brand{justify-content:center}
+.nav.full-nav .navlinks{justify-content:center}
+.section-head,.coverage-head{display:block!important}
+.section-head .lead,.coverage-head .lead,.section-description{max-width:780px!important;margin:14px 0 0!important;color:var(--muted,#667085);font-size:16px;line-height:1.6;font-weight:500;letter-spacing:0}
 @media(max-width:560px){
   .navin{min-height:64px!important;padding:9px 0!important;align-items:center!important;gap:12px}
+  .nav.full-nav .navin{min-height:100px!important;gap:9px;padding:10px 0!important}
   .brand-mark{width:28px;height:28px;font-size:10px}
   .brand-name{font-size:18px}
   .navlinks{max-width:calc(100vw - 180px);overflow-x:auto;flex-wrap:nowrap!important;scrollbar-width:none}
