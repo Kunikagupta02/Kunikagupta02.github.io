@@ -25,10 +25,10 @@
 .hero-more{display:inline-flex;align-items:center;gap:7px;margin:2px 0 24px;color:var(--blue,#2563eb);font-size:14px;font-weight:800}.hero-more:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:560px){
   .navin{min-height:64px!important;padding:9px 0!important;align-items:center!important;gap:12px}
-  .nav.full-nav .navin{min-height:100px!important;gap:9px;padding:10px 0!important}
-  .brand-mark{width:28px;height:28px;font-size:10px}
+  .nav.full-nav .navin{min-height:auto!important;gap:9px;padding:10px 0 12px!important}
   .brand-name{font-size:18px}
-  .navlinks{max-width:calc(100vw - 180px);overflow-x:auto;flex-wrap:nowrap!important;scrollbar-width:none}
-  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks{width:100%;max-width:none;overflow:visible;flex-wrap:wrap!important;justify-content:center!important;scrollbar-width:auto}
   .navlinks a{white-space:nowrap;padding:7px 9px!important;font-size:12px}
+  main .hero h1,main .hero h2,main .section > .wrap > h2,.section-head h2,.coverage-head h2,.case-wrap>h2,.case-sub>h3{text-align:center}
+  main .hero p,.section-head .lead,.coverage-head .lead,.section-description,.section > .wrap > .copy,.section > .wrap > .section-intro,.case-intro,.case-sub>p{text-align:center;margin-left:auto!important;margin-right:auto!important}
 }
