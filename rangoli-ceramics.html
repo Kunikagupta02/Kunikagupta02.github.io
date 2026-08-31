@@ -141,6 +141,6 @@
 </div>
 </section>
 </main>
-<script>document.querySelector('.panel:has(.pie)')?.remove();</script>
+<script>const strategyPanel=document.querySelector('.panel:has(.pie)');if(strategyPanel)strategyPanel.remove();document.querySelectorAll('.two').forEach(grid=>{if(grid.children.length===1)grid.style.gridTemplateColumns='1fr'});</script>
 </body>
 </html>
