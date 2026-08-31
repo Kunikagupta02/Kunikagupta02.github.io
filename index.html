@@ -47,6 +47,7 @@ section{padding:82px 0;border-top:1px solid var(--line)}.section-head{display:fl
 @media(max-width:560px){#meta-exposure .coverage-grid-meta{grid-template-columns:1fr}}
 #web-exposure .coverage-grid-web{grid-template-columns:repeat(2,1fr)}
 @media(max-width:560px){#web-exposure .coverage-grid-web{grid-template-columns:1fr}}
+#rangoli .case-wrap{display:none}.case-study-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.case-study-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}.case-study-card h3{font-size:27px;letter-spacing:-.035em;margin:8px 0}.case-study-card p{color:var(--muted);margin:0 0 20px}.case-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 24px}.case-fact{padding:12px;border-radius:12px;background:var(--soft)}.case-fact small{display:block;color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.case-fact b{display:block;font-size:13px;line-height:1.35;margin-top:4px}.case-detail{display:inline-flex;padding:11px 15px;border-radius:10px;background:var(--navy);color:#fff;font-size:13px;font-weight:800}@media(max-width:700px){.case-study-grid{grid-template-columns:1fr}.case-facts{grid-template-columns:1fr}}
 
 /* Final refinement: skills format, real tool marks, and expandable evidence */
 .skills-six{grid-template-columns:repeat(3,1fr);gap:18px}.skills-six .skill{position:relative;padding:28px;border-radius:22px}.skills-six .skill h3{font-size:28px;letter-spacing:-.03em;margin:0 42px 8px 0}.skill-no{position:absolute;top:26px;right:28px;color:var(--blue);font-size:12px;font-weight:850}.skills-six .skillline{font-size:14px;line-height:1.6}.skills-six .evidence{font-size:12px;line-height:1.5;margin-top:18px;padding-top:15px}.toolicon img{width:29px;height:29px;object-fit:contain;display:block}.toolicon{overflow:hidden}
@@ -267,6 +268,12 @@ document.addEventListener('error',function(e){
       card.querySelector('.coverage-bottom').insertBefore(evidence,card.querySelector('.coverage-bottom a'));
       setupEvidenceButton(evidence);
     });
+  }
+  const caseStudy=document.querySelector('#rangoli .wrap');
+  if(caseStudy){
+    const caseCards=document.createElement('div');
+    caseCards.innerHTML='<div class="kicker">07 / Case Studies</div><h2>Campaign strategy, kept separate by business.</h2><p class="lead" style="margin:12px 0 28px">Two focused case studies with campaign objectives, platform roles and evidence pages.</p><div class="case-study-grid"><article class="case-study-card"><div class="kicker">Case study 01</div><h3>Rangoli Ceramics</h3><p>Paid campaign work for a ceramic tile manufacturer, with Meta Ads and Google Ads explained separately.</p><div class="case-facts"><div class="case-fact"><small>Type of business</small><b>Ceramic tile manufacturer</b></div><div class="case-fact"><small>Platform</small><b>Meta Ads + Google Ads</b></div><div class="case-fact"><small>Objective</small><b>Lead generation & search traffic</b></div><div class="case-fact"><small>Role</small><b>Campaign setup, targeting & optimization</b></div></div><a class="case-detail" href="rangoli-ceramics.html">See details →</a></article><article class="case-study-card"><div class="kicker">Case study 02</div><h3>Priyadarshini Public School</h3><p>Meta Ads campaign work for a school, focused on enquiry and messaging-led audience engagement.</p><div class="case-facts"><div class="case-fact"><small>Type of business</small><b>School</b></div><div class="case-fact"><small>Platform</small><b>Meta Ads</b></div><div class="case-fact"><small>Objective</small><b>Messaging and lead enquiries</b></div><div class="case-fact"><small>Role</small><b>Campaign setup, audience targeting & optimization</b></div></div><a class="case-detail" href="priyadarshini-public-school.html">See details →</a></article></div>';
+    caseStudy.appendChild(caseCards);
   }
   close.addEventListener('click',closeEvidence);
   modal.addEventListener('click',e=>{if(e.target===modal)closeEvidence()});
