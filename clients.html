@@ -42,6 +42,62 @@
     <div class="google"><h2>Google Ads</h2><p class="section-intro">Search campaign work included in the portfolio.</p><div class="grid"><article class="card"><div class="platform">Google Ads</div><h3>Rangoli Ceramics</h3><p>Ceramic Tile Manufacturer</p><span class="tag">Client project</span></article><article class="card"><div class="platform">Google Ads</div><h3>Dream Lumina</h3><p>Fancy Light Showroom</p><span class="tag">Client project</span></article><article class="card"><div class="platform">Google Ads</div><h3>M4B</h3><p>Namkeen Shop</p><span class="tag">Client project</span></article><article class="card"><div class="platform">Google Ads</div><h3>ShreeRam Classes</h3><p>SSC Coaching Institute</p><span class="tag">Client project</span></article></div></div>
     </div></section>
   </main>
+  <div class="evidence-modal" id="evidenceModal" aria-hidden="true"><div class="evidence-dialog" role="dialog" aria-modal="true" aria-labelledby="evidenceTitle"><div class="evidence-head"><h2 id="evidenceTitle">Client screenshot</h2><button class="evidence-close" id="evidenceClose" aria-label="Close screenshot">×</button></div><img class="evidence-image" id="evidenceImage" alt="Client screenshot"><p class="evidence-caption">Supplied project screenshot</p></div></div>
   <footer class="footer"><div class="wrap">© 2026 Kunika Gupta · Digital Marketing Portfolio</div></footer>
+  <script>
+  (function(){
+    const screenshots={
+      'Meta Ads|Shivam Developers':'assets/evidence/Shivam Developers.png',
+      'Meta Ads|Dream Lumina':'assets/evidence/Dream Lumina.png',
+      'Meta Ads|Sheetal Bakery':'assets/evidence/Sheetal Bakery.png',
+      'Meta Ads|32 Parantha':'assets/evidence/32 Parantha.png',
+      'Meta Ads|Aarzoo Car':'assets/evidence/Aarzoo Car.png',
+      'Meta Ads|Car Fashion':'assets/evidence/Car Fashion.png',
+      "Meta Ads|Dr. Bathra's (Bikaner)":'assets/evidence/Dr Batra Bikaner.png',
+      'Meta Ads|Ganpati Batteries':'assets/evidence/Ganpati Batteries.png',
+      'Meta Ads|Hotel Teja Garden':'assets/evidence/Hotel Teja Garden.png',
+      'Meta Ads|Khaosa':'assets/evidence/Khaosa 1.png',
+      'Meta Ads|M4B':'assets/evidence/m4b.png',
+      'Meta Ads|Major Defence Academy':'assets/evidence/Major Defence Academy.png',
+      "Meta Ads|Mumma's Bakery":'assets/evidence/Mumma\'s Bakery.png',
+      'Meta Ads|Priyadarshhini Public School':'assets/evidence/Priyadarshini Public School.png',
+      'Meta Ads|Sharda Paridhan':'assets/evidence/Sharda Paridhan.png',
+      'Meta Ads|ShreeRam Classes':'assets/evidence/Shreeram Classes1.png',
+      'Meta Ads|SMRL':'assets/evidence/SMRL.png',
+      'Meta Ads|Virat Collection':'assets/evidence/Virat Collection.png',
+      'Meta Ads|Priya Industries':'assets/evidence/Priya Industries.png',
+      'Meta Ads|Styler Homes':'assets/evidence/Styler Home.png',
+      'Meta Ads|Pista Devi Kisan':'assets/evidence/Pista Devi Kisan Seva.png',
+      'Meta Ads|Friendz Car Zone':'assets/evidence/Friendz Car Zone.png',
+      'Meta Ads|Hi-Tech Organic':'assets/evidence/Hi- Tech Organic.png',
+      'Google Ads|Rangoli Ceramics':'assets/evidence/Rangoli Ceramic.png',
+      'Google Ads|Dream Lumina':'assets/evidence/Google Ad Dream Lumina.png',
+      'Google Ads|M4B':'assets/evidence/Google Ad M4B Bhujiya 1.png',
+      'Google Ads|ShreeRam Classes':'assets/evidence/Google Ad Shreeram Classes 1.png'
+    };
+    const modal=document.getElementById('evidenceModal');
+    const modalImage=document.getElementById('evidenceImage');
+    const title=document.getElementById('evidenceTitle');
+    function close(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+    document.querySelectorAll('.card').forEach(card=>{
+      const platform=card.querySelector('.platform')?.textContent.trim();
+      const name=card.querySelector('h3')?.textContent.trim();
+      const src=screenshots[platform+'|'+name];
+      if(!src)return;
+      const thumb=document.createElement('button');
+      thumb.type='button';thumb.className='evidence-thumb';thumb.setAttribute('aria-label','View '+name+' screenshot');
+      thumb.innerHTML='<img src="'+src+'" alt="'+name+' project screenshot">';
+      const open=()=>{title.textContent=name+' — Screenshot';modalImage.src=src;modalImage.alt=name+' project screenshot';modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';};
+      thumb.addEventListener('click',open);
+      card.appendChild(thumb);
+      const link=document.createElement('button');
+      link.type='button';link.className='view-screenshot';link.textContent='View Screenshot ↗';link.addEventListener('click',open);
+      card.appendChild(link);
+    });
+    document.getElementById('evidenceClose').addEventListener('click',close);
+    modal.addEventListener('click',event=>{if(event.target===modal)close();});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape'&&modal.classList.contains('open'))close();});
+  })();
+  </script>
 </body>
 </html>
