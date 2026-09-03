@@ -12,3 +12,10 @@ h1,h2,h3,h4,b,strong,.hero h1,.section h2{color:var(--ink)!important}.eyebrow,.k
 #meta-exposure .coverage-card,#web-exposure .coverage-card,#tools .toolcard,.case-study-card{transition:transform .24s cubic-bezier(.22,1,.36,1),border-color .24s ease,box-shadow .24s ease!important}
 @media(hover:hover){#meta-exposure .coverage-card:hover,#web-exposure .coverage-card:hover,#tools .toolcard:hover,.case-study-card:hover{transform:translateY(-6px)!important;border-color:rgba(238,198,84,.78)!important;box-shadow:0 0 0 1px rgba(239,199,85,.22),0 18px 38px rgba(0,0,0,.38),0 0 32px rgba(215,174,61,.25)!important}}
 #meta-exposure .coverage-card:focus-within,#web-exposure .coverage-card:focus-within,#tools .toolcard:focus-within,.case-study-card:focus-within{border-color:rgba(238,198,84,.78)!important;box-shadow:0 0 0 3px rgba(215,174,61,.18),0 0 30px rgba(215,174,61,.2)!important}
+
+/* About: compact, legible capability cards that belong to the dark theme. */
+.capabilities{gap:12px!important}
+.capabilities li{display:flex;align-items:center;min-height:56px;background:linear-gradient(135deg,#1b1a17,#121210)!important;border-color:rgba(228,190,84,.42)!important;color:#fffdf7!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.045);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease!important}
+.capabilities li::before{color:#e5bf55!important;flex:0 0 auto}
+@media(min-width:760px){.capabilities{grid-template-columns:repeat(3,1fr)!important}}
+@media(hover:hover){.capabilities li:hover{transform:translateY(-4px);border-color:rgba(238,198,84,.8)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 12px 28px rgba(0,0,0,.34),0 0 22px rgba(215,174,61,.18)!important}}
