@@ -305,4 +305,15 @@ document.addEventListener('error',function(e){
   const linkedInIcon = document.querySelector('#contact img[alt="LinkedIn logo"]');
   if (linkedInIcon) linkedInIcon.src = 'https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg';
 </script>
+<script>
+  const heroActions = document.querySelector('#about .btn.light')?.parentElement;
+  if (heroActions && !heroActions.querySelector('.resume-download')) {
+    const resumeButton = document.createElement('a');
+    resumeButton.className = 'btn resume-download';
+    resumeButton.href = 'Kunika-Gupta-Resume.pdf';
+    resumeButton.download = '';
+    resumeButton.textContent = 'Download My Resume ↓';
+    heroActions.appendChild(resumeButton);
+  }
+</script>
 </body></html>
