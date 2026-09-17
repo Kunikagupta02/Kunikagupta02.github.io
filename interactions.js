@@ -1,4 +1,23 @@
 /* Scroll and touch interactions, designed to stay lightweight and accessible. */
+(()=>{
+  const showLoader=()=>{
+    if(document.querySelector('.page-loader'))return;
+    const loader=document.createElement('div');
+    loader.className='page-loader';
+    loader.setAttribute('role','status');
+    loader.setAttribute('aria-label','Loading Kunika Gupta portfolio');
+    loader.innerHTML='<div class="page-loader-mark"><span>Kunika</span> Gupta</div><div class="page-loader-line" aria-hidden="true"><i></i></div><p>Digital Marketing Portfolio</p>';
+    document.body.prepend(loader);
+    const dismiss=()=>{
+      loader.classList.add('is-hidden');
+      window.setTimeout(()=>loader.remove(),650);
+    };
+    if(document.readyState==='complete')window.setTimeout(dismiss,180);
+    else window.addEventListener('load',()=>window.setTimeout(dismiss,180),{once:true});
+  };
+  if(document.body)showLoader();
+  else document.addEventListener('DOMContentLoaded',showLoader,{once:true});
+})();
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
   body.classList.add('motion-ready');
